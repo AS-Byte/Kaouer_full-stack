@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
 const terrainRoute = express.Router()
+const nodemailer = require('nodemailer')
 
 // Terrain model
 let Terrain = require('../models/Terrain')
+
 
 // Add Terrain
 terrainRoute.route('/create').post((req, res, next) => {
@@ -14,7 +16,10 @@ terrainRoute.route('/create').post((req, res, next) => {
       res.json(data)
     }
   })
+
 })
+
+//Send e-mail create terrain
 
 // Get All Terrains
 terrainRoute.route('/').get((req, res) => {

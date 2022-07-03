@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {nodemailerdemo} from 'C:/Users/amine/Desktop/fullstack-amin/backend/nodemailerdemo.js';
 
 @Component({
   selector: 'app-terrain-create',
@@ -57,6 +58,12 @@ export class TerrainCreateComponent implements OnInit {
   // Getter to access form control
   get myForm() {
     return this.terrainForm.controls;
+  }
+
+  //Send e-mail create terrain
+  sendEmailCTerrain(data:any){
+    nodemailerdemo.transport.sendM
+    console.log("test")
   }
 
   onSubmit() {

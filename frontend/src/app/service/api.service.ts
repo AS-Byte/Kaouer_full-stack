@@ -22,6 +22,12 @@ export class ApiService {
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
+  //Send e-mail create terrain
+  sendEmailCTerrain(data): Observable<any> {
+    let url = `${this.baseUri}/sendmailc`;
+    return this.http.post(url, data).pipe(catchError(this.errorMgmt));
+  }
+
   // Get all terrains
   getTerrains() {
     return this.http.get(`${this.baseUri}`);
