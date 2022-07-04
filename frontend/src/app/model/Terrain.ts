@@ -7,9 +7,4 @@ export class Terrain {
   surface: string;
   capacity: number;
   phone: number;
-
-
-
-
-
 }

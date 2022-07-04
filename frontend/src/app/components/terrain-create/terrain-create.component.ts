@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {nodemailerdemo} from 'C:/Users/amine/Desktop/fullstack-amin/backend/nodemailerdemo.js';
 
 @Component({
   selector: 'app-terrain-create',
@@ -15,7 +14,8 @@ export class TerrainCreateComponent implements OnInit {
   terrainForm: FormGroup;
   TerrainState: any = ['Actif', 'Inactif'];
   TerrainType: any = ['Couvert', 'Non couvert'];
-  TerrainSurface: any=['Gazon naturel', 'Tarton', 'Gazon artificiel G1', 'Gazon artificiel G2', 'Gazon artificiel G3', 'Gazon artificiel G4', 'Gazon artificiel G5'];
+  TerrainSurface: any = ['Gazon naturel', 'Tarton', 'Gazon artificiel G1','Gazon artificiel G2',
+    'Gazon artificiel G3','Gazon artificiel G4','Gazon artificiel G5'];
 
   constructor(
     public fb: FormBuilder,
@@ -31,8 +31,7 @@ export class TerrainCreateComponent implements OnInit {
   mainForm() {
     this.terrainForm = this.fb.group({
       name: ['', [Validators.required]],
-      email: [
-        '',
+      email: ['',
         [
           Validators.required,
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
@@ -44,7 +43,6 @@ export class TerrainCreateComponent implements OnInit {
       surface: ['', [Validators.required]],
       capacity:['', [Validators.required, Validators.min(6) , Validators.max(22)]],
       location: [''],
-
     });
   }
 
@@ -61,10 +59,10 @@ export class TerrainCreateComponent implements OnInit {
   }
 
   //Send e-mail create terrain
-  sendEmailCTerrain(data:any){
+  /*sendEmailCTerrain(data:any){
     nodemailerdemo.transport.sendM
     console.log("test")
-  }
+  }*/
 
   onSubmit() {
     this.submitted = true;
@@ -73,7 +71,7 @@ export class TerrainCreateComponent implements OnInit {
     } else {
       return this.apiService.createTerrain(this.terrainForm.value).subscribe({
         complete: () => {
-          console.log('Terrain successfully created!'),
+          console.log('Terrain successfully created!')
             this.ngZone.run(() => this.router.navigateByUrl('/terrains-list'));
         },
         error: (e) => {

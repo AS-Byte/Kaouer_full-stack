@@ -1,3 +1,4 @@
+/*
 const nodemailer = require('nodemailer')
 var transport = nodemailer.createTransport({
   service:"outlook",
@@ -25,4 +26,4 @@ transport.sendMail(options, function (err,info){
   }
   console.log("Sent: "+ info.response);
 
-})
+})*/

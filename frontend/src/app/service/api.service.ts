@@ -16,24 +16,24 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  // Create
+  // Create terrain
   createTerrain(data): Observable<any> {
     let url = `${this.baseUri}/create`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
   //Send e-mail create terrain
-  sendEmailCTerrain(data): Observable<any> {
-    let url = `${this.baseUri}/sendmailc`;
+  /*sendEmailCTerrain(data): Observable<any> {
+    let url = `${this.baseUri}/sendmailc/$`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
-  }
+  }*/
 
   // Get all terrains
   getTerrains() {
     return this.http.get(`${this.baseUri}`);
   }
 
-  // Get terrain
+  // Get terrain by id
   getTerrain(id): Observable<any> {
     let url = `${this.baseUri}/read/${id}`;
     return this.http.get(url, { headers: this.headers }).pipe(
@@ -64,10 +64,12 @@ export class ApiService {
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Get client-side error
+
+  // Get client-side error
       errorMessage = error.error.message;
     } else {
-      // Get server-side error
+
+  // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);
