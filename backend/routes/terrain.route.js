@@ -31,17 +31,17 @@ terrainRoute.route('/create').post((req, res, next) => {
         from: "amine.n.oueslati@outlook.fr",
         to: data.email,
         subject: ("Bienvenue sur Kaouer.tn"),
-        text: ("Bonjour "+ data.name+ '<br/>'+
-            "Votre terrain a été correctement ajouté, " +
-            "voici les données que vous avez saisies"+'<br/>'+
-            "Emplacement: "+data.location+'<br/>'+
-            "Etat: "+data.state+'<br/>'+
-            "Type: "+data.type+'<br/>'+
-            "Surface: "+data.surface+'<br/>'+
-            "Capacité: "+data.capacity+'<br/>'+
-            "N° de téléphone de contact: "+data.phone+'<br/>'+
-            "Nous vous remercions de votre confiance" +'<br/>'+
-            "El Jam3ia"
+        text: ("Bonjour "+ data.name+ " , \n"+
+            "Votre terrain a été correctement ajouté." +"\n" +
+            "voici les données que vous avez saisies" + "\n" +
+            "Emplacement : "+data.location+"\n" +
+            "Etat : " +data.state+"\n"+
+            "Type : " +data.type+"\n"+
+            "Surface : " +data.surface+"\n"+
+            "Capacité : "+data.capacity+"\n"+
+            "N° de téléphone de contact : "+data.phone+"\n"+
+            "Nous vous remercions de votre confiance, \n" +
+            "El Jam3ia"+"\n"
         )
       }
 
