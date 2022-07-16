@@ -25,6 +25,7 @@ terrainRoute.route('/create').post((req, res, next) => {
     if (error) {
       return next(error)
     } else {
+
       res.json(data)
 
       var options={
