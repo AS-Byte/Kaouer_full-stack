@@ -5,5 +5,4 @@ const Schema = mongoose.Schema;
 let Balance = new Schema({
   valeur:{type:Number}
 })
-
 module.exports = mongoose.model('Balance', Balance)

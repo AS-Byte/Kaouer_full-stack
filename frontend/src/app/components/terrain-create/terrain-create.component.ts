@@ -37,12 +37,13 @@ export class TerrainCreateComponent implements OnInit {
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
         ],
       ],
-      state: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      location: [''],
+      state: ['', [Validators.required]],
       type: [''],
       surface: ['', [Validators.required]],
       capacity:['', [Validators.required, Validators.min(6) , Validators.max(22)]],
-      location: [''],
+
     });
   }
 
@@ -57,12 +58,6 @@ export class TerrainCreateComponent implements OnInit {
   get myForm() {
     return this.terrainForm.controls;
   }
-
-  //Send e-mail create terrain
-  /*sendEmailCTerrain(data:any){
-    nodemailerdemo.transport.sendM
-    console.log("test")
-  }*/
 
   onSubmit() {
     this.submitted = true;

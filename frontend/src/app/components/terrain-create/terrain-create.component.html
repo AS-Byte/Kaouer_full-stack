@@ -17,7 +17,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputEmail3">E-mail</label>
+          <label for="inputEmail">E-mail</label>
           <input class="form-control" type="text" formControlName="email" />
           <!-- error -->
           <div
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputVerify3">N° de téléphone</label>
+          <label for="inputpn">N° de téléphone</label>
           <input
             class="form-control"
             type="text"
@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputName">Emplacement</label>
+          <label for="inputLocation">Emplacement</label>
           <input class="form-control" type="text" formControlName="location" />
           <!-- error -->
           <div
@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputEtat">Etat</label>
+          <label for="inputState">Etat</label>
           <select class="form-control" type="text" formControlName="state" >
             <option value="">Choose...</option>
             <option
@@ -89,7 +89,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputEtat">Type</label>
+          <label for="inputType">Type</label>
           <select class="form-control" type="text" formControlName="type" >
             <option value="">Choose...</option>
             <option
@@ -111,7 +111,7 @@
 
 
         <div class="form-group">
-          <label for="inputType">Surface</label><br>
+          <label for="inputSurface">Surface</label><br>
           <select
             class="custom-select form-type-control"
             (change)="updateProfile($event.target.value)"
@@ -134,7 +134,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputVerify4">Capacité</label>
+          <label for="inputCapacity">Capacité</label>
           <input
             class="form-control"
             type="number"
@@ -154,8 +154,6 @@
             Enter Numbers Only
           </div>
         </div>
-
-
         <br>
         <div class="form-group">
           <button class="btn btn-success btn-lg btn-block" type="submit">
