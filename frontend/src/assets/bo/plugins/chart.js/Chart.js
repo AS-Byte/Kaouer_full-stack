@@ -1528,7 +1528,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -1611,7 +1611,7 @@ function hexDouble(num) {
 }
 
 
-//create a list of reverse color names
+//centre-create a list of reverse color names
 var reverseNames = {};
 for (var name in colorName$1) {
    reverseNames[colorName$1[name]] = name;
@@ -8331,8 +8331,8 @@ function splitNewlines(str) {
 
 
 /**
- * Private helper to create a tooltip item model
- * @param element - the chart element (point, arc, bar) to create the tooltip item for
+ * Private helper to centre-create a tooltip item model
+ * @param element - the chart element (point, arc, bar) to centre-create the tooltip item for
  * @return new tooltip item
  */
 function createTooltipItem(element) {
@@ -9366,7 +9366,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 			// the chart initialization but after setting basic chart / controller properties that
 			// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
 			// https://github.com/chartjs/Chart.js/issues/2807
-			console.error("Failed to create chart: can't acquire context from the given item");
+			console.error("Failed to centre-create chart: can't acquire context from the given item");
 			return;
 		}
 
@@ -14030,7 +14030,7 @@ function getMax(options) {
  * a decimal between 0 and 1: 0 being the start of the scale (left or top) and 1 the other
  * extremity (left + width or top + height). Note that it would be more optimized to directly
  * store pre-computed pixels, but the scale dimensions are not guaranteed at the time we need
- * to create the lookup table. The table ALWAYS contains at least two items: min and max.
+ * to centre-create the lookup table. The table ALWAYS contains at least two items: min and max.
  *
  * @param {number[]} timestamps - timestamps sorted from lowest to highest.
  * @param {string} distribution - If 'linear', timestamps will be spread linearly along the min
@@ -16107,7 +16107,7 @@ core_controller.pluginService = core_controller.plugins;
 
 /**
  * Provided for backward compatibility, inheriting from Chart.PlugingBase has no
- * effect, instead simply create/register plugins via plain JavaScript objects.
+ * effect, instead simply centre-create/register plugins via plain JavaScript objects.
  * @interface Chart.PluginBase
  * @deprecated since version 2.5.0
  * @todo remove at version 3
@@ -16143,7 +16143,7 @@ core_controller.layoutService = core_controller.layouts;
 core_controller.LinearScaleBase = scale_linearbase;
 
 /**
- * Provided for backward compatibility, instead we should create a new Chart
+ * Provided for backward compatibility, instead we should centre-create a new Chart
  * by setting the type in the config (`new Chart(id, {type: '{chart-type}'}`).
  * @deprecated since version 2.8.0
  * @todo remove at version 3

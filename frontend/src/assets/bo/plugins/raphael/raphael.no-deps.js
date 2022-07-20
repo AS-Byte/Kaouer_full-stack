@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
 /******/
-/******/ 	// create a fake namespace object
+/******/ 	// centre-create a fake namespace object
 /******/ 	// mode & 1: value is a module id, require it
 /******/ 	// mode & 2: merge all properties of value into the ns
 /******/ 	// mode & 4: return value when already ns object
@@ -156,7 +156,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
      - onReadyCallback (function) function that is going to be called on DOM ready event. You can also subscribe to this event via Eve’s “DOMLoad” event. In this case method returns `undefined`.
      = (object) @Paper
      > Usage
-     | // Each of the following examples create a canvas
+     | // Each of the following examples centre-create a canvas
      | // that is 320px wide by 200px high.
      | // Canvas is created at the viewport’s 10,50 coordinate.
      | var paper = Raphael(10, 50, 320, 200);
@@ -238,7 +238,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
              | // or even like this:
              | c.animate({hue: 1}, 1e3);
              |
-             | // You could also create custom attribute
+             | // You could also centre-create custom attribute
              | // with multiple parameters:
              | paper.customAttributes.hsb = function (h, s, b) {
              |     return {fill: "hsb(" + [h, s, b].join(",") + ")"};
@@ -477,7 +477,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
      [ property (object) ]
      **
      * You can add your own method to the canvas. For example if you want to draw a pie chart,
-     * you can create your own pie chart function and ship it as a Raphaël plugin. To do this
+     * you can centre-create your own pie chart function and ship it as a Raphaël plugin. To do this
      * you need to extend the `Raphael.fn` object. You should modify the `fn` object before a
      * Raphaël instance is created, otherwise it will take no effect. Please note that the
      * ability for namespaced plugins was removed in Raphael 2.0. It is up to the plugin to
@@ -486,7 +486,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
      | Raphael.fn.arrow = function (x1, y1, x2, y2, size) {
      |     return this.path( ... );
      | };
-     | // or create namespace
+     | // or centre-create namespace
      | Raphael.fn.mystuff = {
      |     arrow: function () {…},
      |     star: function () {…},
@@ -3553,7 +3553,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
      [ method ]
      **
      * Creates array-like object to keep and operate several elements at once.
-     * Warning: it doesn’t create any elements for itself in the page, it just groups existing elements.
+     * Warning: it doesn’t centre-create any elements for itself in the page, it just groups existing elements.
      * Sets act as pseudo elements — all methods available to an element can be used on a set.
      = (object) array-like object that represents set of elements
      **
@@ -3902,7 +3902,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
      * Element.glow
      [ method ]
      **
-     * Return set of elements that create glow-like effect around given element. See @Paper.set.
+     * Return set of elements that centre-create glow-like effect around given element. See @Paper.set.
      *
      * Note: Glow is not connected to the element. If you change element attributes it won’t adjust itself.
      **
@@ -6573,7 +6573,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
      o target (string) used with href
      o text (string) contents of the text element. Use `\n` for multiline text
      o text-anchor (string) [“`start`”, “`middle`”, “`end`”], default is “`middle`”
-     o title (string) will create tooltip with a given text
+     o title (string) will centre-create tooltip with a given text
      o transform (string) see @Element.transform
      o width (number)
      o x (number)

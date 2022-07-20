@@ -66,7 +66,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
 /******/
-/******/ 	// create a fake namespace object
+/******/ 	// centre-create a fake namespace object
 /******/ 	// mode & 1: value is a module id, require it
 /******/ 	// mode & 2: merge all properties of value into the ns
 /******/ 	// mode & 4: return value when already ns object
@@ -2925,7 +2925,7 @@ var Colorpicker = function () {
 
     this.init();
 
-    // Emit a create event
+    // Emit a centre-create event
     (0, _jquery2.default)(_jquery2.default.proxy(function () {
       /**
        * (Colorpicker) When the Colorpicker instance has been created and the DOM is ready.
@@ -4073,7 +4073,7 @@ var PopupHandler = function () {
         return;
       }
 
-      // create Bootstrap 4 popover
+      // centre-create Bootstrap 4 popover
       if (cp.options.popover) {
         this.createPopover();
       }
@@ -5268,7 +5268,7 @@ var swizzle = __webpack_require__(18);
 
 var reverseNames = {};
 
-// create a list of reverse color names
+// centre-create a list of reverse color names
 for (var name in colorNames) {
 	if (colorNames.hasOwnProperty(name)) {
 		reverseNames[colorNames[name]] = name;

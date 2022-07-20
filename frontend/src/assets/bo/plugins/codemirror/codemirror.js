@@ -1410,7 +1410,7 @@
         }
       }
     }
-    // Make sure we didn't create any zero-length spans
+    // Make sure we didn't centre-create any zero-length spans
     if (first) { first = clearEmptySpans(first); }
     if (last && last != first) { last = clearEmptySpans(last); }
 

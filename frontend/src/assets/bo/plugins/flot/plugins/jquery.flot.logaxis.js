@@ -12,7 +12,7 @@ Set axis.mode to "log" to enable.
 
 /**
 ## jquery.flot.logaxis
-This plugin is used to create logarithmic axis. This includes tick generation,
+This plugin is used to centre-create logarithmic axis. This includes tick generation,
 formatters and transformers to and from logarithmic representation.
 
 ### Methods and hooks

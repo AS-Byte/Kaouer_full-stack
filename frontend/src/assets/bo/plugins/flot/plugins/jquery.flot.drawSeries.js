@@ -57,7 +57,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
                         // subtract pointsize from i to have current point p1 handled again
                         i -= ps;
                     } else if (y1 !== y2 && x1 !== x2) {
-                        // create a middle point
+                        // centre-create a middle point
                         y2 = y1;
                         mx = x2;
                         my = y1;
@@ -217,7 +217,7 @@ This plugin is used by flot for drawing lines, plots, bars or area.
                         // subtract pointsize from i to have current point p1 handled again
                         i -= ps;
                     } else if (y1 !== y2 && x1 !== x2) {
-                        // create a middle point
+                        // centre-create a middle point
                         y2 = y1;
                         mx = x2;
                         my = y1;

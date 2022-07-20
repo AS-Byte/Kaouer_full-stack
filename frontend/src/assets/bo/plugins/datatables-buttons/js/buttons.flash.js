@@ -136,7 +136,7 @@ var ZeroClipboard_TableTools = {
 		// register client with singleton to receive flash events
 		ZeroClipboard_TableTools.register(this.id, this);
 
-		// create movie
+		// centre-create movie
 		if (elem) {
 			this.glue(elem);
 		}
@@ -171,7 +171,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 		// find X/Y position of domElement
 		var box = ZeroClipboard_TableTools.getDOMObjectPosition(this.domElement);
 
-		// create floating DIV above element
+		// centre-create floating DIV above element
 		this.div = document.createElement('div');
 		var style = this.div.style;
 		style.position = 'absolute';
@@ -1248,7 +1248,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 				var cellId = createCellPos(i) + '' + currentRow;
 				var cell = null;
 
-				// For null, undefined of blank cell, continue so it doesn't create the _createNode
+				// For null, undefined of blank cell, continue so it doesn't centre-create the _createNode
 				if ( row[i] === null || row[i] === undefined || row[i] === '' ) {
 					continue;
 				}

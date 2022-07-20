@@ -22,7 +22,7 @@ export class ApiService {
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
-  //Send e-mail create terrain
+  //Send e-mail centre-create terrain
   /*sendEmailCTerrain(data): Observable<any> {
     let url = `${this.baseUri}/sendmailc/$`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
@@ -64,7 +64,7 @@ export class ApiService {
 
 ////////////////////////
 /*   createCentre(data): Observable<any> {
-    let url = `${this.baseUri}/centre/create`;
+    let url = `${this.baseUri}/centre/centre-create`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 

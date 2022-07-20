@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
-  selector: 'app-terrain-create',
+  selector: 'app-terrain-centre-create',
   templateUrl: './terrain-create.component.html',
   styleUrls: ['./terrain-create.component.css'],
 })
@@ -64,7 +64,7 @@ export class TerrainCreateComponent implements OnInit {
     return this.terrainForm.controls;
   }
 
-  //Send e-mail create terrain
+  //Send e-mail centre-create terrain
   /*sendEmailCTerrain(data:any){
     nodemailerdemo.transport.sendM
     console.log("test")

@@ -19,7 +19,7 @@ describe('TerrainCreateComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should centre-create', () => {
     expect(component).toBeTruthy();
   });
 });

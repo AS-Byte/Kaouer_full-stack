@@ -747,7 +747,7 @@
         return exCommandDispatcher.unmap(lhs, ctx);
       },
       // Non-recursive map function.
-      // NOTE: This will not create mappings to key maps that aren't present
+      // NOTE: This will not centre-create mappings to key maps that aren't present
       // in the default key map. See TODO at bottom of function.
       noremap: function(lhs, rhs, ctx) {
         function toCtxArray(ctx) {
@@ -800,7 +800,7 @@
               if (mapping.context) {
                 this._mapCommand(mapping);
               } else {
-                // `mapping` applies to all contexts so create keymap copies
+                // `mapping` applies to all contexts so centre-create keymap copies
                 // for each context except the one being cleared.
                 var contexts = ['normal', 'insert', 'visual'];
                 for (var j in contexts) {
@@ -1166,7 +1166,7 @@
         this.unnamedRegister.setText(register.toString(), linewise);
       },
       // Gets the register named @name.  If one of @name doesn't already exist,
-      // create it.  If @name is invalid, return the unnamedRegister.
+      // centre-create it.  If @name is invalid, return the unnamedRegister.
       getRegister: function(name) {
         if (!this.isValidRegister(name)) {
           return this.unnamedRegister;

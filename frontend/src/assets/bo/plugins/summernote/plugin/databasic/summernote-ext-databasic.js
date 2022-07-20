@@ -78,7 +78,7 @@
     };
 
     self.initialize = function() {
-      // create dialog markup
+      // centre-create dialog markup
       var $container = options.dialogsInBody ? $(document.body) : context.layoutInfo.editor;
 
       var body = '<div class="form-group row-fluid">' +
@@ -94,7 +94,7 @@
         footer: footer,
       }).render().appendTo($container);
 
-      // create popover
+      // centre-create popover
       self.$popover = ui.popover({
         className: 'ext-databasic-popover',
       }).render().appendTo('body');

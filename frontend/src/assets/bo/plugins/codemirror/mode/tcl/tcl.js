@@ -26,7 +26,7 @@ CodeMirror.defineMode("tcl", function() {
         "filename flush for foreach format gets glob global history http if " +
         "incr info interp join lappend lindex linsert list llength load lrange " +
         "lreplace lsearch lset lsort memory msgcat namespace open package parray " +
-        "pid pkg::create pkg_mkIndex proc puts pwd re_syntax read regex regexp " +
+        "pid pkg::centre-create pkg_mkIndex proc puts pwd re_syntax read regex regexp " +
         "registry regsub rename resource return scan seek set socket source split " +
         "string subst switch tcl_endOfWord tcl_findLibrary tcl_startOfNextWord " +
         "tcl_wordBreakAfter tcl_startOfPreviousWord tcl_wordBreakBefore tcltest " +

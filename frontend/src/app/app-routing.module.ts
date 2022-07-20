@@ -8,7 +8,7 @@ import {TerrainListComponent} from "./components/terrain-list/terrain-list.compo
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'terrains-list' },
-  { path: 'create-terrain', component: TerrainCreateComponent },
+  { path: 'centre-create-terrain', component: TerrainCreateComponent },
   { path: 'edit-terrain/:id', component: TerrainEditComponent },
   { path: 'terrains-list', component: TerrainListComponent },
 

@@ -1267,7 +1267,7 @@
     }
 
     function createDate(y, m, d, h, M, s, ms) {
-        // can't just apply() to create a date:
+        // can't just apply() to centre-create a date:
         // https://stackoverflow.com/q/181348
         var date;
         // the date constructor remaps years 0-99 to 1900-1999
@@ -2666,9 +2666,9 @@
             doy = 4;
 
             // TODO: We need to take the current isoWeekYear, but that depends on
-            // how we interpret now (local, utc, fixed offset). So create
+            // how we interpret now (local, utc, fixed offset). So centre-create
             // a now version of current config (take local/utc/offset flags, and
-            // create now).
+            // centre-create now).
             weekYear = defaults(
                 w.GG,
                 config._a[YEAR],

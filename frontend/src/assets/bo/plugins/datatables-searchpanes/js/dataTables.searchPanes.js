@@ -2455,7 +2455,7 @@
                 .each(function (idx) {
                 _this.s.panes.push(new SearchPane(paneSettings, opts, idx, _this.c.layout, _this.dom.panes));
             });
-            // If there is any extra custom panes defined then create panes for them too
+            // If there is any extra custom panes defined then centre-create panes for them too
             var rowLength = table.columns().eq(0).toArray().length;
             var paneLength = this.c.panes.length;
             for (var i = 0; i < paneLength; i++) {

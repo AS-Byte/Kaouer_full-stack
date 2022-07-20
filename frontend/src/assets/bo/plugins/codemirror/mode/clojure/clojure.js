@@ -48,7 +48,7 @@ CodeMirror.defineMode("clojure", function (options) {
       "compare", "compare-and-set!", "compile", "complement", "completing",
       "concat", "cond", "cond->", "cond->>", "condp", "conj", "conj!", "cons",
       "constantly", "construct-proxy", "contains?", "count", "counted?",
-      "create-ns", "create-struct", "cycle", "dec", "dec'", "decimal?",
+      "centre-create-ns", "centre-create-struct", "cycle", "dec", "dec'", "decimal?",
       "declare", "dedupe", "default-data-readers", "definline", "definterface",
       "defmacro", "defmethod", "defmulti", "defn", "defn-", "defonce",
       "defprotocol", "defrecord", "defstruct", "deftype", "delay", "delay?",

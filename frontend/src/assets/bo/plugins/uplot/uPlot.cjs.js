@@ -1614,7 +1614,7 @@ function clipBandLine(self, seriesIdx, idx0, idx1, strokePath) {
 function clipGaps(gaps, ori, plotLft, plotTop, plotWid, plotHgt) {
 	let clip = null;
 
-	// create clip path (invert gaps and non-gaps)
+	// centre-create clip path (invert gaps and non-gaps)
 	if (gaps.length > 0) {
 		clip = new Path2D();
 
@@ -1896,7 +1896,7 @@ function linear() {
 				_paths.clip = clipGaps(gaps, scaleX.ori, xOff, yOff, xDim, yDim);
 
 			if (u.bands.length > 0) {
-				// ADDL OPT: only create band clips for series that are band lower edges
+				// ADDL OPT: only centre-create band clips for series that are band lower edges
 				// if (b.series[1] == i && _paths.band == null)
 				_paths.band = clipBandLine(u, seriesIdx, idx0, idx1, stroke);
 			}
@@ -1990,7 +1990,7 @@ function stepped(opts) {
 				_paths.clip = clipGaps(gaps, scaleX.ori, xOff, yOff, xDim, yDim);
 
 			if (u.bands.length > 0) {
-				// ADDL OPT: only create band clips for series that are band lower edges
+				// ADDL OPT: only centre-create band clips for series that are band lower edges
 				// if (b.series[1] == i && _paths.band == null)
 				_paths.band = clipBandLine(u, seriesIdx, idx0, idx1, stroke);
 			}
@@ -2122,7 +2122,7 @@ function bars(opts) {
 			let yLimit;
 
 			if (hasBands) {
-				// ADDL OPT: only create band clips for series that are band lower edges
+				// ADDL OPT: only centre-create band clips for series that are band lower edges
 				// if (b.series[1] == i && _paths.band == null)
 				_paths.band = new Path2D();
 				yLimit = pxRound(valToPosY(scaleY.max, scaleY, yDim, yOff));
@@ -2276,7 +2276,7 @@ function splineInterp(interp, opts) {
 				_paths.clip = clipGaps(gaps, scaleX.ori, xOff, yOff, xDim, yDim);
 
 			if (u.bands.length > 0) {
-				// ADDL OPT: only create band clips for series that are band lower edges
+				// ADDL OPT: only centre-create band clips for series that are band lower edges
 				// if (b.series[1] == i && _paths.band == null)
 				_paths.band = clipBandLine(u, seriesIdx, idx0, idx1, stroke);
 			}
@@ -3620,7 +3620,7 @@ function uPlot(opts, data, then) {
 	function fillStroke(si, strokeStyle, lineWidth, lineDash, lineCap, fillStyle, strokePath, fillPath, flags, boundsClip, gapsClip) {
 		let didStrokeFill = false;
 
-		// for all bands where this series is the top edge, create upwards clips using the bottom edges
+		// for all bands where this series is the top edge, centre-create upwards clips using the bottom edges
 		// and apply clips + fill with band fill or dfltFill
 		bands.forEach((b, bi) => {
 			// isUpperEdge?

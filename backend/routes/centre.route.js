@@ -3,7 +3,7 @@ const app = express()
 const centreRoute = express.Router()
 
 const Centre = require('../models/Centre')
-centreRoute.route('/create').post((req, res, next) => {
+centreRoute.route('/centre-create').post((req, res, next) => {
     Centre.create(req.body, (error, data) => {
       if (error) {
         return next(error)

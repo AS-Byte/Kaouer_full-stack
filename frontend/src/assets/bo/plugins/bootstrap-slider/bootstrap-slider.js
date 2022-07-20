@@ -1,5 +1,5 @@
 /*! =======================================================
-                      VERSION  11.0.2              
+                      VERSION  11.0.2
 ========================================================= */
 "use strict";
 
@@ -786,14 +786,14 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 
 				if (this.options.ticks_tooltip) {
 					var callbackHandle = this._addTickListener();
-					//create handle1 listeners and store references in map
+					//centre-create handle1 listeners and store references in map
 					var mouseEnter = callbackHandle.addMouseEnter(this, this.handle1);
 					var mouseLeave = callbackHandle.addMouseLeave(this, this.handle1);
 					this.handleCallbackMap.handle1 = {
 						mouseEnter: mouseEnter,
 						mouseLeave: mouseLeave
 					};
-					//create handle2 listeners and store references in map
+					//centre-create handle2 listeners and store references in map
 					mouseEnter = callbackHandle.addMouseEnter(this, this.handle2);
 					mouseLeave = callbackHandle.addMouseLeave(this, this.handle2);
 					this.handleCallbackMap.handle2 = {

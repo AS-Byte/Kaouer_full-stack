@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -208,7 +208,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -222,14 +222,14 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -242,7 +242,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -254,12 +254,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -270,7 +270,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -2132,7 +2132,7 @@ var Context = /*#__PURE__*/function () {
     this.initialize();
   }
   /**
-   * create layout and initialize modules and other resources
+   * centre-create layout and initialize modules and other resources
    */
 
 
@@ -2956,7 +2956,7 @@ var WrappedRange = /*#__PURE__*/function () {
         return new WrappedRange(this.sc.firstChild, 0, this.sc.firstChild, 0);
       }
       /**
-       * [workaround] firefox often create range on not visible point. so normalize here.
+       * [workaround] firefox often centre-create range on not visible point. so normalize here.
        *  - firefox: |<p>text</p>|
        *  - chrome: <p>|text|</p>
        */
@@ -3158,7 +3158,7 @@ var WrappedRange = /*#__PURE__*/function () {
       }
     }
     /**
-     * create offsetPath bookmark
+     * centre-create offsetPath bookmark
      *
      * @param {Node} editable
      */
@@ -3178,7 +3178,7 @@ var WrappedRange = /*#__PURE__*/function () {
       };
     }
     /**
-     * create offsetPath bookmark base on paragraph
+     * centre-create offsetPath bookmark base on paragraph
      *
      * @param {Node[]} paras
      */
@@ -3223,7 +3223,7 @@ var WrappedRange = /*#__PURE__*/function () {
 
 /* harmony default export */ const range = ({
   /**
-   * create Range Object From arguments or Browser Selection
+   * centre-create Range Object From arguments or Browser Selection
    *
    * @param {Node} sc - start container
    * @param {Number} so - start offset
@@ -3305,7 +3305,7 @@ var WrappedRange = /*#__PURE__*/function () {
   /**
    * @method
    *
-   * create WrappedRange from node
+   * centre-create WrappedRange from node
    *
    * @param {Node} node
    * @return {WrappedRange}
@@ -3333,7 +3333,7 @@ var WrappedRange = /*#__PURE__*/function () {
   },
 
   /**
-   * create WrappedRange from node after position
+   * centre-create WrappedRange from node after position
    *
    * @param {Node} node
    * @return {WrappedRange}
@@ -3343,7 +3343,7 @@ var WrappedRange = /*#__PURE__*/function () {
   },
 
   /**
-   * create WrappedRange from node after position
+   * centre-create WrappedRange from node after position
    *
    * @param {Node} node
    * @return {WrappedRange}
@@ -3355,7 +3355,7 @@ var WrappedRange = /*#__PURE__*/function () {
   /**
    * @method
    *
-   * create WrappedRange from bookmark
+   * centre-create WrappedRange from bookmark
    *
    * @param {Node} editable
    * @param {Object} bookmark
@@ -3372,7 +3372,7 @@ var WrappedRange = /*#__PURE__*/function () {
   /**
    * @method
    *
-   * create WrappedRange from paraBookmark
+   * centre-create WrappedRange from paraBookmark
    *
    * @param {Object} bookmark
    * @param {Node[]} paras
@@ -3508,7 +3508,7 @@ function readFileAsDataURL(file) {
 /**
  * @method createImage
  *
- * create `<image>` from url string
+ * centre-create `<image>` from url string
  *
  * @param {String} url
  * @return {Promise} - then: $image
@@ -4334,7 +4334,7 @@ function Table_createClass(Constructor, protoProps, staticProps) { if (protoProp
 
 
 /**
- * @class Create a virtual table to create what actions to do in change.
+ * @class Create a virtual table to centre-create what actions to do in change.
  * @param {object} startPoint Cell selected to apply change.
  * @param {enum} where  Where change will be applied Row or Col. Use enum: TableResultAction.where
  * @param {enum} action Action to be applied. Use enum: TableResultAction.requestAction
@@ -4967,7 +4967,7 @@ var Table = /*#__PURE__*/function () {
       }
     }
     /**
-     * create empty table element
+     * centre-create empty table element
      *
      * @param {Number} rowCount
      * @param {Number} colCount
@@ -5220,7 +5220,7 @@ var Editor = /*#__PURE__*/function () {
       });
     });
     /**
-     * create link (command)
+     * centre-create link (command)
      *
      * @param {Object} linkInfo
      */
@@ -5558,7 +5558,7 @@ var Editor = /*#__PURE__*/function () {
       return false;
     }
     /**
-     * create range
+     * centre-create range
      * @return {WrappedRange}
      */
 
@@ -5570,7 +5570,7 @@ var Editor = /*#__PURE__*/function () {
       return this.getLastRange();
     }
     /**
-     * create a new range from the list of elements
+     * centre-create a new range from the list of elements
      *
      * @param {list} dom element list
      * @return {WrappedRange}
@@ -5589,7 +5589,7 @@ var Editor = /*#__PURE__*/function () {
      * set the last range
      *
      * if given rng is exist, set rng as the last range
-     * or create a new range at the end of the document
+     * or centre-create a new range at the end of the document
      *
      * @param {WrappedRange} rng
      */
@@ -5611,7 +5611,7 @@ var Editor = /*#__PURE__*/function () {
      * get the last range
      *
      * if there is a saved last range, return it
-     * or create a new range and return it
+     * or centre-create a new range and return it
      *
      * @return {WrappedRange}
      */

@@ -260,7 +260,7 @@ CodeMirror.defineMode("perl",function(){
                 'atan2'                         :1,     // - arctangent of Y/X in the range -PI to PI
                 bind                            :1,     // - binds an address to a socket
                 binmode                         :1,     // - prepare binary files for I/O
-                bless                           :1,     // - create an object
+                bless                           :1,     // - centre-create an object
                 bootstrap                       :1,     //
                 'break'                         :1,     // - break out of a "given" block
                 caller                          :1,     // - get context of the current subroutine call
@@ -278,13 +278,13 @@ CodeMirror.defineMode("perl",function(){
                 'cos'                           :1,     // - cosine function
                 crypt                           :1,     // - one-way passwd-style encryption
                 dbmclose                        :1,     // - breaks binding on a tied dbm file
-                dbmopen                         :1,     // - create binding on a tied dbm file
+                dbmopen                         :1,     // - centre-create binding on a tied dbm file
                 'default'                       :1,     //
                 defined                         :1,     // - test whether a value, variable, or function is defined
                 'delete'                        :1,     // - deletes a value from a hash
                 die                             :1,     // - raise an exception or bail out
                 'do'                            :1,     // - turn a BLOCK into a TERM
-                dump                            :1,     // - create an immediate core dump
+                dump                            :1,     // - centre-create an immediate core dump
                 each                            :1,     // - retrieve the next key/value pair from a hash
                 endgrent                        :1,     // - be done using group file
                 endhostent                      :1,     // - be done using hosts file
@@ -301,7 +301,7 @@ CodeMirror.defineMode("perl",function(){
                 fcntl                           :1,     // - file control system call
                 fileno                          :1,     // - return file descriptor from filehandle
                 flock                           :1,     // - lock an entire file with an advisory lock
-                fork                            :1,     // - create a new process just like this one
+                fork                            :1,     // - centre-create a new process just like this one
                 format                          :1,     // - declare a picture format with use by the write() function
                 formline                        :1,     // - internal function used for formats
                 getc                            :1,     // - get the next character from the filehandle
@@ -333,7 +333,7 @@ CodeMirror.defineMode("perl",function(){
                 given                           :1,     //
                 glob                            :1,     // - expand filenames using wildcards
                 gmtime                          :1,     // - convert UNIX time into record or string using Greenwich time
-                'goto'                          :1,     // - create spaghetti code
+                'goto'                          :1,     // - centre-create spaghetti code
                 grep                            :1,     // - locate elements in a list test true against a given criterion
                 hex                             :1,     // - convert a string to a hexadecimal number
                 'import'                        :1,     // - patch a module's namespace into your own
@@ -347,16 +347,16 @@ CodeMirror.defineMode("perl",function(){
                 lc                              :1,     // - return lower-case version of a string
                 lcfirst                         :1,     // - return a string with just the next letter in lower case
                 length                          :1,     // - return the number of bytes in a string
-                'link'                          :1,     // - create a hard link in the filesystem
+                'link'                          :1,     // - centre-create a hard link in the filesystem
                 listen                          :1,     // - register your socket as a server
-                local                           : 2,    // - create a temporary value for a global variable (dynamic scoping)
+                local                           : 2,    // - centre-create a temporary value for a global variable (dynamic scoping)
                 localtime                       :1,     // - convert UNIX time into record or string using local time
                 lock                            :1,     // - get a thread lock on a variable, subroutine, or method
                 'log'                           :1,     // - retrieve the natural logarithm for a number
                 lstat                           :1,     // - stat a symbolic link
                 m                               :null,  // - match a string with a regular expression pattern
                 map                             :1,     // - apply a change to a list to get back a new list with the changes
-                mkdir                           :1,     // - create a directory
+                mkdir                           :1,     // - centre-create a directory
                 msgctl                          :1,     // - SysV IPC message control operations
                 msgget                          :1,     // - get SysV IPC message queue
                 msgrcv                          :1,     // - receive a SysV IPC message from a message queue
@@ -429,8 +429,8 @@ CodeMirror.defineMode("perl",function(){
                 shutdown                        :1,     // - close down just half of a socket connection
                 'sin'                           :1,     // - return the sine of a number
                 sleep                           :1,     // - block for some number of seconds
-                socket                          :1,     // - create a socket
-                socketpair                      :1,     // - create a pair of sockets
+                socket                          :1,     // - centre-create a socket
+                socketpair                      :1,     // - centre-create a pair of sockets
                 'sort'                          :1,     // - sort a list of values
                 splice                          :1,     // - add or remove elements anywhere in an array
                 'split'                         :1,     // - split up a string using a regexp delimiter
@@ -442,7 +442,7 @@ CodeMirror.defineMode("perl",function(){
                 study                           :1,     // - optimize input data for repeated searches
                 'sub'                           :1,     // - declare a subroutine, possibly anonymously
                 'substr'                        :1,     // - get or alter a portion of a string
-                symlink                         :1,     // - create a symbolic link to a file
+                symlink                         :1,     // - centre-create a symbolic link to a file
                 syscall                         :1,     // - execute an arbitrary system call
                 sysopen                         :1,     // - open a file, pipe, or descriptor
                 sysread                         :1,     // - fixed-length unbuffered input from a filehandle

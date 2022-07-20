@@ -1399,7 +1399,7 @@ var FullCalendar = (function (exports) {
         if (extendedSettings.omitZeroMinute) {
             s = s.replace(':00', ''); // zeroFormat doesn't always achieve this
         }
-        // ^ do anything that might create adjacent spaces before this point,
+        // ^ do anything that might centre-create adjacent spaces before this point,
         // because MERIDIEM_RE likes to eat up loading spaces
         if (extendedSettings.meridiem === false) {
             s = s.replace(MERIDIEM_RE, '').trim();
@@ -4210,7 +4210,7 @@ var FullCalendar = (function (exports) {
         moreLinkText: 'more',
         noEventsText: 'No events to display',
     };
-    var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), { 
+    var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), {
         // Includes things we don't want other locales to inherit,
         // things that derive from other translatable strings.
         buttonHints: {
@@ -6789,7 +6789,7 @@ var FullCalendar = (function (exports) {
         var endMarker = framingRange.end;
         var instanceStarts = [];
         while (dayMarker < endMarker) {
-            var instanceStart 
+            var instanceStart
             // if everyday, or this particular day-of-week
             = void 0;
             // if everyday, or this particular day-of-week
@@ -7627,7 +7627,7 @@ var FullCalendar = (function (exports) {
         SegHierarchy.prototype.insertEntryAt = function (entry, insertion) {
             var _a = this, entriesByLevel = _a.entriesByLevel, levelCoords = _a.levelCoords;
             if (insertion.lateral === -1) {
-                // create a new level
+                // centre-create a new level
                 insertAt(levelCoords, insertion.level, insertion.levelCoord);
                 insertAt(entriesByLevel, insertion.level, [entry]);
             }
@@ -11741,7 +11741,7 @@ var FullCalendar = (function (exports) {
         function ExternalElementDragging(dragging, suppliedDragMeta) {
             var _this = this;
             this.receivingContext = null;
-            this.droppableEvent = null; // will exist for all drags, even if create:false
+            this.droppableEvent = null; // will exist for all drags, even if centre-create:false
             this.suppliedDragMeta = null;
             this.dragMeta = null;
             this.handleDragStart = function (ev) {
@@ -12341,7 +12341,7 @@ var FullCalendar = (function (exports) {
             hierarchy.maxStackCnt = dayMaxEventRows;
             hierarchy.hiddenConsumes = true;
         }
-        // create segInputs only for segs with known heights
+        // centre-create segInputs only for segs with known heights
         var segInputs = [];
         var unknownHeightSegs = [];
         for (var i = 0; i < segs.length; i += 1) {
@@ -13816,7 +13816,7 @@ var FullCalendar = (function (exports) {
             if (!slatCoords) {
                 return null;
             }
-            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date, 
+            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date,
                 // key doesn't matter. will only ever be one
                 key: i }, function (rootElRef, classNames, innerElRef, innerContent) { return (createElement("div", { ref: rootElRef, className: ['fc-timegrid-now-indicator-line'].concat(classNames).join(' '), style: { top: slatCoords.computeDateTop(seg.start, date) } }, innerContent)); })); });
         };

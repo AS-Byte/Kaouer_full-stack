@@ -20,7 +20,7 @@ let Terrain = require('../models/Terrain')
 
 
 // Add Terrain & send email
-terrainRoute.route('/create').post((req, res, next) => {
+terrainRoute.route('/centre-create').post((req, res, next) => {
   Terrain.create(req.body, (error, data) => {
     if (error) {
       return next(error)

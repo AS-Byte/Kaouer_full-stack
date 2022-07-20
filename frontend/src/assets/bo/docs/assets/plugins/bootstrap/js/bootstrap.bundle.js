@@ -1502,7 +1502,7 @@
   };
 
   /**!
-   * @fileOverview Kickass library to create and place poppers near their reference elements.
+   * @fileOverview Kickass library to centre-create and place poppers near their reference elements.
    * @version 1.16.1
    * @license
    * Copyright (c) 2016 Federico Zivolo and contributors
@@ -3984,7 +3984,7 @@
       // make update() debounced, so that it only runs at most once-per-tick
       this.update = debounce(this.update.bind(this));
 
-      // with {} we create a new object with the options inside it
+      // with {} we centre-create a new object with the options inside it
       this.options = _extends({}, Popper.Defaults, options);
 
       // init state
