@@ -1,14 +1,15 @@
 
 <div class="container">
   <!-- No data message -->
-  <p *ngIf="Terrain.length <= 0" class="no-data text-center">
+  <!-- <p *ngIf="Terrain.length <= 0" class="no-data text-center">
     There is no terrain added yet!
-  </p>
+  </p> -->
 
   <!-- Terrain list -->
-  <table class="table table-bordered" *ngIf="Terrain.length > 0">
+  <table class="table table-bordered" >
     <thead class="table-success">
       <tr>
+        <th scope="col">Number</th>
         <th scope="col">Terrain ID</th>
         <th scope="col">Nom du Terrain</th>
         <th scope="col">E-mail</th>
@@ -23,10 +24,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let terrain of Terrain; let i = index">
-        <th scope="row">{{ terrain._id }}</th>
+      <tr *ngFor="let terrain of terrains| slice: (page-1) * pageSize : page * pageSize; index as i">
+        <th scope="row">{{ idsForeachPage(i)}}</th>
+        <td>{{ terrain._id }}</td>
         <td>{{ terrain.name }}</td>
-        <td>{{ terrain.email }}</td>
+       <td>{{ terrain.email }}</td>
         <td>{{ terrain.phone }}</td>
         <td>{{ terrain.location }}</td>
         <td>{{ terrain.state }}</td>
@@ -39,11 +41,13 @@
           </span>
         </td>
         <td class="text-center edit-block">
-          <span class="delete" (click)="removeTerrain(terrain, i)">
+          <span class="delete" (click)="removeTerrain(terrain._id)">
             <button type="button" class="btn btn-danger btn-sm">Delete</button>
           </span>
         </td>
       </tr>
     </tbody>
   </table>
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
+    [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
 </div>

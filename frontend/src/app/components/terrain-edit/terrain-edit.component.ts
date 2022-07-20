@@ -51,8 +51,8 @@ export class TerrainEditComponent implements OnInit {
   }
 
   // Choose options with select-dropdown
-  updateProfile(e) {
-    this.editForm.get('state').setValue(e, {
+  updateProfile(e,name:string) {
+    this.editForm.get(name).setValue(e, {
       onlySelf: true,
     });
   }

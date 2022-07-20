@@ -7,9 +7,9 @@ let Centre = new Schema({
   cemail :{type : String},
   clocation :{type:String},
   cphone:{type:Number},
-  balance:[ {
+  terrain:[ {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "balance"
+    ref: "terrain"
   }]
 })
 module.exports = mongoose.model('Centre', Centre)

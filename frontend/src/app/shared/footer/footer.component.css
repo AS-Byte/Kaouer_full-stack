@@ -1,0 +1,14 @@
+main {
+    overflow-y: auto;
+  }
+  .mat-toolbar{
+    background-color: cornflowerblue;
+    color: white;
+    bottom: 0;
+    position:absolute;
+
+  }
+  .spacer{
+    text-align: center;
+    flex: 1 1 auto;
+  }

@@ -1,7 +1,8 @@
-import { Router } from '@angular/router';
-import { ApiService } from '../../service/api.service';
-import { Component, OnInit, NgZone } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {ApiService} from "../../service/api.service";
+import {Component, NgZone, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
 
 @Component({
   selector: 'app-terrain-create',
@@ -17,12 +18,15 @@ export class TerrainCreateComponent implements OnInit {
   TerrainSurface: any = ['Gazon naturel', 'Tarton', 'Gazon artificiel G1','Gazon artificiel G2',
     'Gazon artificiel G3','Gazon artificiel G4','Gazon artificiel G5'];
 
+  private apiService: ApiService;
+
   constructor(
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private apiService: ApiService
+    apiService: ApiService
   ) {
+    this.apiService = apiService;
     this.mainForm();
   }
 
@@ -37,19 +41,20 @@ export class TerrainCreateComponent implements OnInit {
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
         ],
       ],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      location: [''],
       state: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       type: [''],
       surface: ['', [Validators.required]],
       capacity:['', [Validators.required, Validators.min(6) , Validators.max(22)]],
+      location: [''],
+
 
     });
   }
 
   // Choose designation with select dropdown
-  updateProfile(e) {
-    this.terrainForm.get('state').setValue(e, {
+  updateProfile(e,name:string) {
+    this.terrainForm.get(name).setValue(e, {
       onlySelf: true,
     });
   }
@@ -59,6 +64,12 @@ export class TerrainCreateComponent implements OnInit {
     return this.terrainForm.controls;
   }
 
+  //Send e-mail create terrain
+  /*sendEmailCTerrain(data:any){
+    nodemailerdemo.transport.sendM
+    console.log("test")
+  }*/
+
   onSubmit() {
     this.submitted = true;
     if (!this.terrainForm.valid) {
@@ -67,7 +78,7 @@ export class TerrainCreateComponent implements OnInit {
       return this.apiService.createTerrain(this.terrainForm.value).subscribe({
         complete: () => {
           console.log('Terrain successfully created!')
-            this.ngZone.run(() => this.router.navigateByUrl('/terrains-list'));
+          this.ngZone.run(() => this.router.navigateByUrl('/terrains-list'));
         },
         error: (e) => {
           console.log(e);

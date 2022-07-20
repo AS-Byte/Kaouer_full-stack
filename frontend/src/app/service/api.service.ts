@@ -32,7 +32,9 @@ export class ApiService {
   getTerrains() {
     return this.http.get(`${this.baseUri}`);
   }
-
+  contact() {
+    return this.http.get(`${this.baseUri}/contact`);
+  }
   // Get terrain by id
   getTerrain(id): Observable<any> {
     let url = `${this.baseUri}/read/${id}`;
@@ -59,6 +61,41 @@ export class ApiService {
       .delete(url, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
   }
+
+////////////////////////
+/*   createCentre(data): Observable<any> {
+    let url = `${this.baseUri}/centre/create`;
+    return this.http.post(url, data).pipe(catchError(this.errorMgmt));
+  }
+
+  getCentres() {
+    return this.http.get(`${this.baseUri}/centre`);
+  }
+
+  getCentre(id): Observable<any> {
+    let url = `${this.baseUri}/centre/read/${id}`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
+
+
+  updateCentre(id, data): Observable<any> {
+    let url = `${this.baseUri}/centre/update/${id}`;
+    return this.http
+      .put(url, data, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }
+
+  deleteCentre(id): Observable<any> {
+    let url = `${this.baseUri}/centre/delete/${id}`;
+    return this.http
+      .delete(url, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }*/
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

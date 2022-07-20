@@ -91,6 +91,7 @@ terrainRoute.route('/update/:id').put((req, res, next) => {
     req.params.id,
     {
       $set: req.body,
+
     },
     (error, data) => {
       if (error) {
@@ -106,7 +107,8 @@ terrainRoute.route('/update/:id').put((req, res, next) => {
 
 // Delete terrain
 terrainRoute.route('/delete/:id').delete((req, res, next) => {
-  Terrain.findOneAndRemove(req.params.id, (error, data) => {
+  Terrain.findByIdAndRemove(req.params.id, (error, data) => {
+    console.log(req.params.id)
     if (error) {
       return next(error)
     } else {
@@ -116,4 +118,6 @@ terrainRoute.route('/delete/:id').delete((req, res, next) => {
     }
   })
 })
+
+
 module.exports = terrainRoute

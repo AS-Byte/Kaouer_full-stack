@@ -16,6 +16,7 @@ mongoose
 
 // Setting up port with express js
 const terrainRoute = require('../backend/routes/terrain.route')
+const centreRoute = require('../backend/routes/centre.route')
 const app = express()
 app.use(bodyParser.json())
 app.use(
@@ -27,6 +28,7 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'dist/terrain-crud')))
 app.use('/', express.static(path.join(__dirname, 'dist/terrain-crud')))
 app.use('/api', terrainRoute)
+app.use('/api/centre', centreRoute)
 
 // Create port
 const port = process.env.PORT || 4000

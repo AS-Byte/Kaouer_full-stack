@@ -76,7 +76,7 @@
             <label for="inputPassword3">Etat</label>
             <select
               class="custom-select form-control"
-              (change)="updateProfile($event.target.value)"
+              (change)="updateProfile($event.target.value,'state')"
               formControlName="state"
             >
               <option value="">Choose...</option>
@@ -119,7 +119,7 @@
             <label for="inputType">Surface</label><br>
             <select
               class="custom-select form-type-control"
-              (change)="updateProfile($event.target.value)"
+              (change)="updateProfile($event.target.value,'surface')"
               formControlName="surface"
             >
 

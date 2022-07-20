@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Terrain } from 'src/app/model/Terrain';
 import { ApiService } from '../../service/api.service';
 
 @Component({
@@ -8,7 +9,15 @@ import { ApiService } from '../../service/api.service';
 })
 
 export class TerrainListComponent implements OnInit {
-  Terrain: any = [];
+  Terrain : Terrain[];
+  searchTerm: string;
+  page = 1;
+  pageSize = 8;
+  collectionSize: number;
+  currentRate = 2;
+  terrainFoot:Terrain;
+  terrains : Terrain[];
+  allTerrain:Terrain[];
 
   constructor(private apiService: ApiService) {
     this.readTerrain();
@@ -17,16 +26,24 @@ export class TerrainListComponent implements OnInit {
   ngOnInit() {}
 
   readTerrain() {
-    this.apiService.getTerrains().subscribe((data) => {
-      this.Terrain = data;
-    });
-  }
+    this.apiService.getTerrains().subscribe((data:Terrain[]) => {
 
-  removeTerrain(terrain, index) {
-    if (window.confirm('Are you sure?')) {
-      this.apiService.deleteTerrain(terrain._id).subscribe((data) => {
-        this.Terrain.splice(index, 1);
+        this.collectionSize = data.length;
+        this.terrains=data;
+        console.log(this.terrains);
+        this.allTerrain = this.terrains;
       });
+  }
+  idsForeachPage(i:number):Number{
+    return(this.page -1) * this.pageSize + i + 1
+  }
+  removeTerrain(terrain_id) {
+    console.log(terrain_id)
+    if (window.confirm('Are you sure?')) {
+      this.apiService.deleteTerrain(terrain_id).subscribe((data) => {
+        this.readTerrain();
+      });
+
     }
   }
 }

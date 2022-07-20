@@ -1,16 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from "@angular/core";
+import {AppComponent} from "./app.component";
+import {TerrainCreateComponent} from "./components/terrain-create/terrain-create.component";
+import {TerrainEditComponent} from "./components/terrain-edit/terrain-edit.component";
+import {TerrainListComponent} from "./components/terrain-list/terrain-list.component";
+import {ListFilterPipe} from "./components/terrain-list/listFilterPipe";
+import {FooterComponent} from "./shared/footer/footer.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {NavbarComponent} from "./shared/navbar/navbar.component";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TerrainCreateComponent } from './components/terrain-create/terrain-create.component';
-import { TerrainEditComponent } from './components/terrain-edit/terrain-edit.component';
-import { TerrainListComponent } from './components/terrain-list/terrain-list.component'
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { CentreCreateComponent } from './components/centre-create/centre-create.component';
-import { CentreListComponent } from './components/centre-list/centre-list.component';
-import { CentreEditComponent } from './components/centre-edit/centre-edit.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {AppRoutingModule} from "./app-routing.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule} from "@angular/material/button";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+
 
 @NgModule({
   declarations: [
@@ -18,9 +23,11 @@ import { CentreEditComponent } from './components/centre-edit/centre-edit.compon
     TerrainCreateComponent,
     TerrainEditComponent,
     TerrainListComponent,
-    CentreCreateComponent,
-    CentreListComponent,
-    CentreEditComponent,
+    NavbarComponent,
+    FooterComponent,
+    ListFilterPipe,
+
+
   ],
   imports: [
     BrowserModule,
@@ -28,6 +35,13 @@ import { CentreEditComponent } from './components/centre-edit/centre-edit.compon
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    NgbModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
   ],
   providers: [],
   bootstrap: [AppComponent],
