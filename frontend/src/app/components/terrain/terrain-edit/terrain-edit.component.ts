@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../../service/api.service';
+import { ApiService } from '../../../service/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Terrain } from 'src/app/model/Terrain';
 
 @Component({
   selector: 'app-Terrain-edit',
-  templateUrl: './Terrain-edit.component.html',
-  styleUrls: ['./Terrain-edit.component.css'],
+  templateUrl: './terrain-edit.component.html',
+  styleUrls: ['./terrain-edit.component.css'],
 })
 
 export class TerrainEditComponent implements OnInit {

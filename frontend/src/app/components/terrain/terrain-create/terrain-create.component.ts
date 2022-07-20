@@ -1,4 +1,4 @@
-import {ApiService} from "../../service/api.service";
+import {ApiService} from "../../../service/api.service";
 import {Component, NgZone, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
@@ -46,7 +46,7 @@ export class TerrainCreateComponent implements OnInit {
       type: [''],
       surface: ['', [Validators.required]],
       capacity:['', [Validators.required, Validators.min(6) , Validators.max(22)]],
-      location: [''],
+      centre: [],
 
 
     });

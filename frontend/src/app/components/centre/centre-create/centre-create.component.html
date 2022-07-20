@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-terrain">
+    <!-- form ajout terrain -->
+    <div class="card-body">
+      <form [formGroup]="centreForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="inputName">Nom du Centre</label>
+          <input class="form-control" type="text" formControlName="cname" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['cname'].errors?.['required']"
+          >
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail">E-mail</label>
+          <input class="form-control" type="text" formControlName="cemail" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['cemail'].errors?.['required']"
+          >
+            Enter your email.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['cemail'].errors?.['pattern']"
+          >
+            Enter valid email.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputpn">N° de téléphone</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="cphone"
+          />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['cphone'].errors?.['required']"
+          >
+            Enter your phone number.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['cphone'].errors?.['pattern']"
+          >
+            Enter Numbers Only
+          </div>
+        </div><!--
+
+        <div class="form-group">
+          <label for="inputgouvernorat">Gouvernorat</label>
+          <select class="form-control" type="text" formControlName="gouvernorat" >
+            <option value="">Choose...</option>
+            <option
+              *ngFor="let gouvernorat of Gouvernorat"
+              value="{{ gouvernorat }}"
+            >
+              {{ gouvernorat }}
+            </option>
+          </select>
+          &lt;!&ndash; error &ndash;&gt;
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['cgouvernorat'].errors?.['required']"
+          >
+            gouvernorat is required.
+          </div>
+        </div>-->
+
+        <div class="form-group">
+          <label for="inputLocation">Emplacement</label>
+          <input class="form-control" type="text" formControlName="clocation" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['clocation'].errors?.['required']"
+          >
+            location is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputState">Terrain</label>
+          <select class="form-control" type="text" formControlName="terrain" >
+            <option value="">Choose...</option>
+          </select>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['terrain']"
+          >
+            Choose Terrain
+          </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>

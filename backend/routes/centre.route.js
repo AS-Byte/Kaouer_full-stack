@@ -3,7 +3,7 @@ const app = express()
 const centreRoute = express.Router()
 
 const Centre = require('../models/Centre')
-centreRoute.route('/centre-create').post((req, res, next) => {
+centreRoute.route('/create').post((req, res, next) => {
     Centre.create(req.body, (error, data) => {
       if (error) {
         return next(error)
@@ -62,7 +62,7 @@ centreRoute.route('/centre-create').post((req, res, next) => {
   
   // Delete Centre
   centreRoute.route('/delete/:id').delete((req, res, next) => {
-    Centre.findOneAndRemove(req.params.id, (error, data) => {
+    Centre.findByIdAndRemove(req.params.id, (error, data) => {
       if (error) {
         return next(error)
       } else {

@@ -1,8 +1,10 @@
+import {Centre} from "./Centre";
+
 export class Terrain {
   _id: number;
   name: string;
   email: string;
-  location: string;
+  centre:Centre[];
   state:boolean;
   type:boolean;
   surface: string;

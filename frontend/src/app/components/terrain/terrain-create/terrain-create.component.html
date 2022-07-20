@@ -57,12 +57,12 @@
         </div>
 
         <div class="form-group">
-          <label for="inputLocation">Emplacement</label>
-          <input class="form-control" type="text" formControlName="location" />
+          <label for="inputLocation">Centre</label>
+          <input class="form-control" type="text" formControlName="centre" />
           <!-- error -->
           <div
             class="invalid-feedback"
-            *ngIf="submitted && myForm['location'].errors?.['required']"
+            *ngIf="submitted && myForm['centre'].errors?.['required']"
           >
             location is required.
           </div>

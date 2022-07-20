@@ -1,0 +1,48 @@
+
+<div class="container">
+  <!-- No data message -->
+  <!-- <p *ngIf="Terrain.length <= 0" class="no-data text-center">
+    There is no terrain added yet!
+  </p> -->
+
+  <!-- Terrain list -->
+  <table class="table table-bordered" >
+    <thead class="table-success">
+    <tr>
+      <th scope="col">Number</th>
+      <th scope="col">ID Centre</th>
+      <th scope="col">Nom du Centre</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">N° de téléphone</th>
+      <th scope="col">Emplacement</th>
+      <th scope="col">Terrain</th>
+      <th scope="col center" >Mettre à jour</th>
+      <th scope="col center" >Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let center of centers| slice: (page-1) * pageSize : page * pageSize; index as i">
+      <th scope="row">{{ idsForeachPage(i)}}</th>
+      <td>{{ center._id }}</td>
+      <td>{{ center.cname }}</td>
+      <td>{{ center.cemail }}</td>
+      <td>{{ center.cphone }}</td>
+      <td> <a href="{{ center.clocation }}"> {{ center.clocation }} </a></td>
+      <td>{{ center.terrain }}</td>
+
+      <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edit-centre/', center._id]">
+            <button type="button" class="btn btn-success btn-sm">Edit</button>
+          </span>
+      </td>
+      <td class="text-center edit-block">
+          <span class="delete" (click)="removeCentre(center._id)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
+                  [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+</div>

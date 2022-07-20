@@ -1,8 +1,28 @@
 
    <mat-toolbar color="primary">
-    <span>Terrain Management</span>
-     <div class="spacer"></div>
-       <a mat-button routerLinkActive="active" routerLink="/terrains-list">Consulter Terrains  </a>
-       <a mat-button routerLinkActive="active" routerLink="/create-terrain">Ajouter Terrain </a>
+
+       <button class="link-primary" mat-button [matMenuTriggerFor]="App">Home</button>
+
+       <!--First level Menu-->
+
+       <mat-menu #App="matMenu">
+         <button mat-menu-item [matMenuTriggerFor]="terrain">Terrain</button>
+         <button mat-menu-item [matMenuTriggerFor]="centre">Centre</button>
+       </mat-menu>
+
+       <!--Second level sub Menu-->
+
+       <mat-menu #terrain="matMenu">
+         <button mat-menu-item><a mat-button routerLinkActive="active" routerLink="/create-terrain">Ajouter Terrain </a></button>
+         <button mat-menu-item> <a mat-button routerLinkActive="active" routerLink="/terrains-list">Consulter Terrains  </a></button>
+
+       </mat-menu>
+
+       <mat-menu #centre="matMenu">
+         <button mat-menu-item><a mat-button routerLinkActive="active" routerLink="/create-centre">Ajouter centre </a></button>
+         <button mat-menu-item><a mat-button routerLinkActive="active" routerLink="/centres-list">Consulter Centres  </a></button>
+       </mat-menu>
+
+
    </mat-toolbar>
 

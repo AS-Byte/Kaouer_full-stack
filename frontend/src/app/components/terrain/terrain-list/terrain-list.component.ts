@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Terrain } from 'src/app/model/Terrain';
-import { ApiService } from '../../service/api.service';
+import { ApiService } from '../../../service/api.service';
 
 @Component({
   selector: 'app-terrain-list',

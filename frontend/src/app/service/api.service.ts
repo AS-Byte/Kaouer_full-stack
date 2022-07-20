@@ -63,8 +63,8 @@ export class ApiService {
   }
 
 ////////////////////////
-/*   createCentre(data): Observable<any> {
-    let url = `${this.baseUri}/centre/centre-create`;
+   createCentre(data): Observable<any> {
+    let url = `${this.baseUri}/centre/create`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
@@ -95,7 +95,7 @@ export class ApiService {
     return this.http
       .delete(url, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
-  }*/
+  }
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
