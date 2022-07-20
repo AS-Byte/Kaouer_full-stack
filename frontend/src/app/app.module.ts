@@ -8,6 +8,9 @@ import { TerrainEditComponent } from './components/terrain-edit/terrain-edit.com
 import { TerrainListComponent } from './components/terrain-list/terrain-list.component'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CentreCreateComponent } from './components/centre-create/centre-create.component';
+import { CentreListComponent } from './components/centre-list/centre-list.component';
+import { CentreEditComponent } from './components/centre-edit/centre-edit.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     TerrainCreateComponent,
     TerrainEditComponent,
     TerrainListComponent,
+    CentreCreateComponent,
+    CentreListComponent,
+    CentreEditComponent,
   ],
   imports: [
     BrowserModule,

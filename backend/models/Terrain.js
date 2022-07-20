@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+const centre= require('./centre');
+const balance= require('./balance')
 const Schema = mongoose.Schema;
 
 // Define schema
 let Terrain = new Schema({
+  centre:{type: []},
   name :{type:String},
   email :{type : String},
   location :{type:String},
@@ -11,7 +14,9 @@ let Terrain = new Schema({
   surface :{type:String},
   capacity :{type:Number},
   phone:{type:Number},
-
+  balance:[ {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "balance"
+  }]
 })
-
 module.exports = mongoose.model('Terrain', Terrain)
