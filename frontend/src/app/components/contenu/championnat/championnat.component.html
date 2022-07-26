@@ -13,41 +13,42 @@
                             class="p-button-success mr-2"
                             (click)="openNew()"
                         ></button>
-                        <button
+                        <!-- <button
                             pButton
                             pRipple
                             label="Delete"
                             icon="pi pi-trash"
                             class="p-button-danger"
-                            (click)="deleteSelectedProducts()"
+                            (click)="deleteChamp()"
                             [disabled]="
                                 !selectedProducts || !selectedProducts.length
                             "
-                        ></button>
+                        ></button> -->
                     </div>
                 </ng-template>
 
                 <ng-template pTemplate="right"> </ng-template>
             </p-toolbar>
-
+            <!-- [(selection)]="selectedProducts" -->
             <p-table
-                #dt
-                [value]="products"
+                #todotable
+                [value]="championnats"
                 [columns]="cols"
                 responsiveLayout="scroll"
                 [rows]="10"
                 [globalFilterFields]="[
-                    'name',
-                    'country.name',
-                    'representative.name',
-                    'status'
+                    'nom',
+                    'typeChampionnat',
+                    'equipe',
+                    'terrain',
+                    'arbitre',
+                    'score'
                 ]"
                 [rows]="10"
                 [paginator]="true"
                 [rowsPerPageOptions]="[10, 20, 30]"
                 [showCurrentPageReport]="true"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                [(selection)]="selectedProducts"
                 selectionMode="multiple"
                 [rowHover]="true"
                 dataKey="id"
@@ -60,9 +61,15 @@
                         <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <input
+                                #globalSearch
                                 pInputText
                                 type="text"
-                                (input)="onGlobalFilter(dt, $event)"
+                                (input)="
+                                    todotable.filterGlobal(
+                                        globalSearch.value,
+                                        'contains'
+                                    )
+                                "
                                 placeholder="Search..."
                                 class="w-full sm:w-auto"
                             />
@@ -71,74 +78,161 @@
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th style="width: 3rem">
-                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        <th pSortableColumn="nom">
+                            Nom <p-sortIcon field="nom"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="code">
-                            Code <p-sortIcon field="code"></p-sortIcon>
+                        <th pSortableColumn="typeChampionnat">
+                            TYPES
+                            <p-sortIcon field="typeChampionnat"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="name">
-                            Name <p-sortIcon field="name"></p-sortIcon>
+                        <th pSortableColumn="equipe">
+                            EQUIPES <p-sortIcon field="equipe"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="price">
-                            Price <p-sortIcon field="price"></p-sortIcon>
+                        <th pSortableColumn="terrain">
+                            TERRAINS <p-sortIcon field="terrain"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="category">
-                            Category <p-sortIcon field="category"></p-sortIcon>
+                        <th pSortableColumn="arbitre">
+                            ARBITRES <p-sortIcon field="arbitre"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="rating">
-                            Reviews <p-sortIcon field="rating"></p-sortIcon>
+                        <th pSortableColumn="score" style="text-align: center">
+                            MEUILLEURS SCORE
+                            <p-sortIcon field="score"></p-sortIcon>
                         </th>
-                        <th pSortableColumn="inventoryStatus">
-                            Status
-                            <p-sortIcon field="inventoryStatus"></p-sortIcon>
+
+                        <th>ACTIONS</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input
+                                #globalSearchname
+                                pInputText
+                                type="text"
+                                (input)="
+                                    todotable.filter(
+                                        globalSearchname.value,
+                                        'nom',
+                                        'startsWith'
+                                    )
+                                "
+                                placeholder="Search with Nom"
+                            />
+                        </th>
+
+                        <th>
+                            <input
+                                #globalSearchtype
+                                pInputText
+                                type="text"
+                                (input)="
+                                    todotable.filter(
+                                        globalSearchtype.value,
+                                        'typeChampionnat',
+                                        'startsWith'
+                                    )
+                                "
+                                placeholder="Search with Type"
+                            />
+                        </th>
+
+                        <th>
+                            <input
+                                #globalSearchequipe
+                                pInputText
+                                type="text"
+                                (input)="
+                                    todotable.filter(
+                                        globalSearchequipe.value,
+                                        'equipe',
+                                        'startsWith'
+                                    )
+                                "
+                                placeholder="Search with Equipe"
+                            />
+                        </th>
+                        <th>
+                            <input
+                                pInputText
+                                type="text"
+                                (input)="
+                                    todotable.filter(
+                                        $event.target,
+                                        'terrain',
+                                        'startsWith'
+                                    )
+                                "
+                                placeholder="Search with Terrain"
+                            />
+                        </th>
+                        <!-- <th>
+                        <input
+                          pInputText
+                          type="text"
+                          (input)="todotable.filter($event.target, 'arbitre', 'startsWith')"
+                          placeholder="Search with Arbitre"
+                        />
+                      </th> -->
+                        <th>
+                            <p-columnFilter
+                                field="arbitre"
+                                matchMode="in"
+                                display="menu"
+                                [showMatchModes]="false"
+                                [showOperator]="false"
+                                [showAddButton]="false"
+                            >
+                                <ng-template
+                                    pTemplate="filter"
+                                    let-value
+                                    let-filter="filterCallback"
+                                >
+                                    <p-multiSelect
+                                        #globalSearcharbitre
+                                        [ngModel]="value"
+                                        [options]="userlist"
+                                        placeholder="Any"
+                                        (onChange)="filter(todotable.value)"
+                                        optionLabel="nom"
+                                    >
+                                        <!-- <ng-template let-option pTemplate="item"> -->
+                                        <div
+                                            class="p-multiselect-representative-option"
+                                        >
+                                            <span class="ml-1">{{
+                                                todotable.value
+                                            }}</span>
+                                        </div>
+                                        <!-- </ng-template> -->
+                                    </p-multiSelect>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <th style="text-align: center">
+                            <input
+                                #globalSearchscore
+                                pInputText
+                                type="text"
+                                (input)="
+                                    todotable.filter(
+                                        globalSearchscore.value,
+                                        'score',
+                                        'startsWith'
+                                    )
+                                "
+                                placeholder="Search with Meuilleur"
+                            />
                         </th>
                         <th></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-product>
+                <ng-template pTemplate="body" let-championnat>
                     <tr>
-                        <td>
-                            <p-tableCheckbox
-                                [value]="product"
-                            ></p-tableCheckbox>
-                        </td>
-                        <td style="width: 14%; min-width: 10rem">
-                            <span class="p-column-title">Code</span>
-                            {{ product.code || product.id }}
-                        </td>
-                        <td style="width: 14%; min-width: 10rem">
-                            <span class="p-column-title">Name</span>
-                            {{ product.name }}
-                        </td>
-
-                        <td style="width: 14%; min-width: 8rem">
-                            <span class="p-column-title">Price</span>
-                            {{ product.price | currency: "USD" }}
-                        </td>
-                        <td style="width: 14%; min-width: 10rem">
-                            <span class="p-column-title">Category</span>
-                            {{ product.category }}
-                        </td>
-                        <td style="width: 14%; min-width: 10rem">
-                            <span class="p-column-title">Reviews</span>
-                            <p-rating
-                                [ngModel]="product.rating"
-                                [readonly]="true"
-                                [cancel]="false"
-                            ></p-rating>
-                        </td>
-                        <td style="width: 14%; min-width: 10rem">
-                            <span class="p-column-title">Status</span>
-                            <span
-                                [class]="
-                                    'product-badge status-' +
-                                    (product.inventoryStatus
-                                        ? product.inventoryStatus.toLowerCase()
-                                        : '')
-                                "
-                                >{{ product.inventoryStatus }}</span
-                            >
+                        <td>{{ championnat.nom }}</td>
+                        <td>{{ championnat.typeChampionnat }}</td>
+                        <td>{{ championnat.equipe }}</td>
+                        <td>{{ championnat.terrain }}</td>
+                        <td>{{ championnat.arbitre }}</td>
+                        <td style="text-align: center">
+                            {{ championnat.score }}
                         </td>
                         <td>
                             <div class="flex">
@@ -147,14 +241,14 @@
                                     pRipple
                                     icon="pi pi-pencil"
                                     class="p-button-rounded p-button-success mr-2"
-                                    (click)="editProduct(product)"
+                                    (click)="updateChampDialog(championnat)"
                                 ></button>
                                 <button
                                     pButton
                                     pRipple
                                     icon="pi pi-trash"
                                     class="p-button-rounded p-button-warning"
-                                    (click)="deleteProduct(product)"
+                                    (click)="deleteChamp(championnat)"
                                 ></button>
                             </div>
                         </td>
@@ -164,142 +258,135 @@
         </div>
 
         <p-dialog
-            [(visible)]="productDialog"
+            [(visible)]="updateDialog"
             [style]="{ width: '450px' }"
-            header="Product Details"
+            header="Gestion de championnat"
             [modal]="true"
             class="p-fluid"
         >
             <ng-template pTemplate="content">
-                <img
-                    [src]="'assets/demo/images/product/' + product.image"
-                    [alt]="product.image"
-                    width="150"
-                    class="mt-0 mx-auto mb-5 block shadow-2"
-                    *ngIf="product.image"
-                />
+                <!-- Nom championnat -->
                 <div class="field">
-                    <label for="name">Name</label>
+                    <label for="name">Nom</label>
                     <input
                         type="text"
                         pInputText
-                        id="name"
-                        [(ngModel)]="product.name"
+                        id="nomChamp"
+                        [(ngModel)]="championnat.nom"
                         required
                         autofocus
                         [ngClass]="{
-                            'ng-invalid ng-dirty': submitted && !product.name
+                            'ng-invalid ng-dirty': submitted && !championnat.nom
                         }"
                     />
                     <small
                         class="ng-dirty ng-invalid"
-                        *ngIf="submitted && !product.name"
-                        >Name is required.</small
+                        *ngIf="submitted && !championnat.nom"
                     >
+                        Champ obligatoire.
+                    </small>
                 </div>
+                <!-- Type championnat -->
                 <div class="field">
-                    <label for="description">Description</label>
-                    <textarea
-                        id="description"
-                        pInputTextarea
-                        [(ngModel)]="product.description"
+                    <label for="typeChamp">Type</label>
+                    <select
+                        id="typeChamp"
+                        [(ngModel)]="championnat.typeChampionnat"
                         required
-                        rows="3"
-                        cols="20"
-                    ></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="status">Inventory Status</label>
-                    <p-dropdown
-                        id="status"
-                        [options]="statuses"
-                        optionLabel="label"
-                        [(ngModel)]="product.inventoryStatus"
-                        placeholder="Select a Status"
+                        autofocus
                     >
-                        <ng-template pTemplate="selectedItem">
-                            <span
-                                *ngIf="product && product.inventoryStatus"
-                                [class]="
-                                    'product-badge status-' +
-                                    product.inventoryStatus.toLowerCase()
-                                "
-                                >{{ product.inventoryStatus }}</span
-                            >
-                        </ng-template>
-                        <ng-template let-status pTemplate="status">
-                            <span
-                                [class]="
-                                    'product-badge status-' +
-                                    status.value.toLowerCase()
-                                "
-                                >{{ status.label }}</span
-                            >
-                        </ng-template>
-                    </p-dropdown>
+                        <option value="Amateur">Amateur</option>
+                        <option value="professionel">professionel</option>
+                    </select>
+                    <small
+                        class="ng-dirty ng-invalid"
+                        *ngIf="submitted && !championnat.typeChampionnat"
+                    >
+                        Champ obligatoire.
+                    </small>
                 </div>
-
+                <!-- Equipes championnat -->
                 <div class="field">
-                    <label class="mb-3">Category</label>
-                    <div class="formgrid grid">
-                        <div class="field-radiobutton col-6">
-                            <p-radioButton
-                                id="category1"
-                                name="category"
-                                value="Accessories"
-                                [(ngModel)]="product.category"
-                            ></p-radioButton>
-                            <label for="category1">Accessories</label>
-                        </div>
-                        <div class="field-radiobutton col-6">
-                            <p-radioButton
-                                id="category2"
-                                name="category"
-                                value="Clothing"
-                                [(ngModel)]="product.category"
-                            ></p-radioButton>
-                            <label for="category2">Clothing</label>
-                        </div>
-                        <div class="field-radiobutton col-6">
-                            <p-radioButton
-                                id="category3"
-                                name="category"
-                                value="Electronics"
-                                [(ngModel)]="product.category"
-                            ></p-radioButton>
-                            <label for="category3">Electronics</label>
-                        </div>
-                        <div class="field-radiobutton col-6">
-                            <p-radioButton
-                                id="category4"
-                                name="category"
-                                value="Fitness"
-                                [(ngModel)]="product.category"
-                            ></p-radioButton>
-                            <label for="category4">Fitness</label>
-                        </div>
-                    </div>
+                    <label for="equipChamp">Equipes</label>
+                    <select
+                        id="equipChamp"
+                        [(ngModel)]="championnat.equipe"
+                        required
+                        autofocus
+                    >
+                        <option value="Poule1">Poule1</option>
+                        <option value="Poule2">Poule2</option>
+                        <option value="Poule3">Poule3</option>
+                        <option value="Poule4">Poule4</option>
+                    </select>
+                    <small
+                        class="ng-dirty ng-invalid"
+                        *ngIf="submitted && !championnat.equipe"
+                    >
+                        Champ obligatoire.
+                    </small>
                 </div>
-
-                <div class="formgrid grid">
-                    <div class="field col">
-                        <label for="price">Price</label>
-                        <p-inputNumber
-                            id="price"
-                            [(ngModel)]="product.price"
-                            mode="currency"
-                            currency="USD"
-                            locale="en-US"
-                        ></p-inputNumber>
-                    </div>
-                    <div class="field col">
-                        <label for="quantity">Quantity</label>
-                        <p-inputNumber
-                            id="quantity"
-                            [(ngModel)]="product.quantity"
-                        ></p-inputNumber>
-                    </div>
+                <!-- Terrain championnat -->
+                <div class="field">
+                    <label for="terrChamp">Terrain</label>
+                    <select
+                        id="terrChamp"
+                        [(ngModel)]="championnat.terrain"
+                        required
+                        autofocus
+                    >
+                        <option value="Terrain1">Terrain1</option>
+                        <option value="Terrain2">Terrain2</option>
+                        <option value="Terrain3">Terrain3</option>
+                        <option value="Terrain4">Terrain4</option>
+                    </select>
+                    <small
+                        class="ng-dirty ng-invalid"
+                        *ngIf="submitted && !championnat.terrain"
+                    >
+                        Champ obligatoire.
+                    </small>
+                </div>
+                <!-- Arbitre championnat -->
+                <div class="field">
+                    <label for="arbitre">Arbitre</label>
+                    <p-multiSelect
+                        [options]="userlist"
+                        [(ngModel)]="championnat.arbitre"
+                        optionLabel="nom"
+                        placeholder="select Arbitre"
+                        display="chip"
+                        optionValue="nom"
+                        (onChange)="log()"
+                    ></p-multiSelect>
+                    <small
+                        class="ng-dirty ng-invalid"
+                        *ngIf="submitted && !championnat.arbitre"
+                    >
+                        Champ obligatoire.
+                    </small>
+                </div>
+                <!-- Score championnat -->
+                <div class="field">
+                    <label for="scorChamp">Score</label>
+                    <input
+                        type="text"
+                        pInputText
+                        id="scorChamp"
+                        [(ngModel)]="championnat.score"
+                        required
+                        autofocus
+                        [ngClass]="{
+                            'ng-invalid ng-dirty':
+                                submitted && !championnat.score
+                        }"
+                    />
+                    <small
+                        class="ng-dirty ng-invalid"
+                        *ngIf="submitted && !championnat.score"
+                    >
+                        Champ obligatoire.
+                    </small>
                 </div>
             </ng-template>
 
@@ -307,89 +394,22 @@
                 <button
                     pButton
                     pRipple
-                    label="Cancel"
+                    label="Annuler"
                     icon="pi pi-times"
                     class="p-button-text"
-                    (click)="hideDialog()"
+                    (click)="updateDialog = false"
                 ></button>
                 <button
                     pButton
                     pRipple
-                    label="Save"
+                    label="Confirmer"
                     icon="pi pi-check"
                     class="p-button-text"
-                    (click)="saveProduct()"
+                    (click)="updateChamp()"
                 ></button>
             </ng-template>
         </p-dialog>
 
-        <p-dialog
-            [(visible)]="deleteProductDialog"
-            header="Confirm"
-            [modal]="true"
-            [style]="{ width: '450px' }"
-        >
-            <div class="flex align-items-center justify-content-center">
-                <i
-                    class="pi pi-exclamation-triangle mr-3"
-                    style="font-size: 2rem"
-                ></i>
-                <span *ngIf="product"
-                    >Are you sure you want to delete <b>{{ product.name }}</b
-                    >?</span
-                >
-            </div>
-            <ng-template pTemplate="footer">
-                <button
-                    pButton
-                    pRipple
-                    icon="pi pi-times"
-                    class="p-button-text"
-                    label="No"
-                    (click)="deleteProductDialog = false"
-                ></button>
-                <button
-                    pButton
-                    pRipple
-                    icon="pi pi-check"
-                    class="p-button-text"
-                    label="Yes"
-                    (click)="confirmDelete()"
-                ></button>
-            </ng-template>
-        </p-dialog>
-
-        <p-dialog
-            [(visible)]="deleteProductsDialog"
-            header="Confirm"
-            [modal]="true"
-            [style]="{ width: '450px' }"
-        >
-            <div class="flex align-items-center justify-content-center">
-                <i
-                    class="pi pi-exclamation-triangle mr-3"
-                    style="font-size: 2rem"
-                ></i>
-                <span>Are you sure you want to delete selected products?</span>
-            </div>
-            <ng-template pTemplate="footer">
-                <button
-                    pButton
-                    pRipple
-                    icon="pi pi-times"
-                    class="p-button-text"
-                    label="No"
-                    (click)="deleteProductsDialog = false"
-                ></button>
-                <button
-                    pButton
-                    pRipple
-                    icon="pi pi-check"
-                    class="p-button-text"
-                    label="Yes"
-                    (click)="confirmDeleteSelected()"
-                ></button>
-            </ng-template>
-        </p-dialog>
+        <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
     </div>
 </div>

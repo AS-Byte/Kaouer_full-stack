@@ -10,6 +10,8 @@ const { DB, PORT } = require("./config");
 
 // Initialize the application
 const app = exp();
+const arbitre = require("./routes/arbitre");
+const championnat = require("./routes/championnats");
 
 // Middlewares
 app.use(cors());
@@ -20,6 +22,8 @@ require("./middlewares/passport")(passport);
 
 // User Router Middleware
 app.use("/api/users", require("./routes/users"));
+app.use("/api/arbitre", arbitre);
+app.use("/api/championnat", championnat);
 
 const startApp = async () => {
   try {
@@ -27,12 +31,12 @@ const startApp = async () => {
     await connect(DB, {
       useFindAndModify: true,
       useUnifiedTopology: true,
-      useNewUrlParser: true
+      useNewUrlParser: true,
     });
 
     success({
       message: `Successfully connected with the Database \n${DB}`,
-      badge: true
+      badge: true,
     });
 
     // Start Listenting for the server on PORT
@@ -42,7 +46,7 @@ const startApp = async () => {
   } catch (err) {
     error({
       message: `Unable to connect with Database \n${err}`,
-      badge: true
+      badge: true,
     });
     startApp();
   }

@@ -47,6 +47,11 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['/contenu/equipes'],
                     },
                     {
+                        label: 'Arbitre',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: ['/contenu/arbitre'],
+                    },
+                    {
                         label: 'Championnat',
                         icon: 'pi pi-fw pi-globe',
                         routerLink: ['/contenu/championnat'],

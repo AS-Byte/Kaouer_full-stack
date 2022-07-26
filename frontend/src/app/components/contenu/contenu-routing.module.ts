@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from '../notfound/notfound.component';
+import { ArbitreComponent } from './arbitre/arbitre.component';
 import { ChampionnatComponent } from './championnat/championnat.component';
 import { EquipesComponent } from './equipes/equipes.component';
 import { ReservationsComponent } from './reservations/reservations.component';
@@ -14,6 +15,8 @@ const routes: Routes = [
     { path: 'reservations', component: ReservationsComponent },
     { path: 'equipes', component: EquipesComponent },
     { path: 'championnat', component: ChampionnatComponent },
+    { path: 'arbitre', component: ArbitreComponent },
+
 ];
 
 @NgModule({

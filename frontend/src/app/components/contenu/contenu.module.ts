@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ContenuRoutingModule } from './contenu-routing.module';
 import { ContenuComponent } from './contenu.component';
 import { UtilisateursComponent } from './utilisateurs/utilisateurs.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
@@ -22,6 +21,8 @@ import { EquipesComponent } from './equipes/equipes.component';
 import { ChampionnatComponent } from './championnat/championnat.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ArbitreComponent } from './arbitre/arbitre.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { DialogModule } from 'primeng/dialog';
         ReservationsComponent,
         EquipesComponent,
         ChampionnatComponent,
+        ArbitreComponent,
     ],
     imports: [
         CommonModule,
@@ -51,6 +53,7 @@ import { DialogModule } from 'primeng/dialog';
         ToolbarModule,
         DialogModule,
         ReactiveFormsModule,
+        ConfirmDialogModule,
     ],
 })
 export class ContenuModule {}
