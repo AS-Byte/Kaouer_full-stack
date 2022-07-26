@@ -1,0 +1,112 @@
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar admin</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <form class="d-flex">
+                <input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" aria-controls="navbarSupportedContent"  value="adduser" class="btn btn-success"/>
+               
+            </form>
+            
+          </div>
+          <div class="d-flex justify-content-end">
+            <input type="button"  (click)="logout()" value="logout" class="btn btn-success"/>
+          </div>
+        </div>
+      </nav>
+
+      <div class="row mt-2">
+        <div class="col-2 offset-5">
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="card-title">Total Users</h4>
+              <hr>
+              <input type="submit" (click)="countUser()" value="Total Users" class="btn btn-success"/>
+              <h5 class="text-muted">{{userCount }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>operations</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList">
+
+
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>
+             <input type="button"  data-bs-toggle="modal" (click)="editUser(user)" data-bs-target="#staticBackdrop" aria-controls="navbarSupportedContent"  type="button" value="update" class="btn btn-success me-2"/>
+             <input type="button" (click)="deleteUser(user._id)"  value="delete" class="btn btn-danger"/>
+
+                </td>
+            </tr>
+        </tbody>
+      </table>
+
+
+      <!-- Button trigger modal -->
+<!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">user management</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="userValue" >
+                <div class="mb-3">
+                    <label for="txtName" class="form-label">username</label>
+                    <input type="text" formControlName="username" class="form-control" id="textName" >
+                  </div>
+                <div class="mb-3">
+                  <label for="txtEmail" class="form-label">Email address</label>
+                  <div class="input-group">
+                    <div class="input-group-text">@</div>
+                  <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                </div>
+                <div class="mb-3">
+                    <label for="txtPhone" class="form-label">Phone</label>
+                    <div class="input-group">
+                        <div class="input-group-text">+216</div>
+                    <input type="text" formControlName="phone" class="form-control" id="phone" aria-describedby="emailHelp">
+                  </div></div>
+                <div class="mb-3">
+                  <label for="txtPassword" class="form-label">Password</label>
+                  <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+                </div>
+
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <button  type="button" *ngIf="btnSaveShow" class="btn btn-success" (click)="addUser()">save</button>
+          <button  type="button" *ngIf="btnUpdateShow" class="btn btn-success" (click)="updateUser()">update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
